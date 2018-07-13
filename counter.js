@@ -1,4 +1,5 @@
-module.exports = (opts) => {
+module.exports = (opts, ...rest) => {
+  console.log(`I think I'm the counterService, args:`, {opts, rest})
   let redisClient = opts.redisClient;
   let counterRedisKey = opts.counterRedisKey;
 

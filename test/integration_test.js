@@ -16,38 +16,44 @@ describe('integration tests', () => {
     console.log('<><><><><> BEFORE <><><><><><>', {HOST, PORT})
     // Create a grpc client.
     // This assumes that the server is running.
+    let credentials = grpc.credentials.createInsecure()
+    console.log(grpc.ServerCredentials.createInsecure())
+    console.log({credentials})
+
     client = new counterProto.counter.CounterService(
       HOST + ':' + PORT,
-      grpc.credentials.createInsecure()
+      credentials
     );
+    
+    console.log({client})
   });
 
   afterEach((done) => {
 
     console.log('<><><><><> AFTER <><><><><><>', {client})
-    // client.reset({}, done);
-    done()
+    client.reset({}, done);
+    // done()
   });
   
   it('should do nothing', () => {})
 
-  // it('should reset, then add to the counter', (done) => {
-  //   async.series({
-  //     reset: function(callback) {
-  //       client.reset({}, callback);
-  //     },
-  //     add: function(callback) {
-  //       client.add({count: 1}, callback);
-  //     },
-  //     get: function(callback) {
-  //       client.get({}, (err, res) => {
-  //         should.not.exist(err);
-  //         res.count.should.equal(1);
-  //         callback();
-  //       });
-  //     }
-  //   }, done);
-  // });
+  it('should reset, then add to the counter', (done) => {
+    async.series({
+      reset: function(callback) {
+        client.reset({}, callback);
+      },
+      add: function(callback) {
+        client.add({count: 1}, callback);
+      },
+      get: function(callback) {
+        client.get({}, (err, res) => {
+          should.not.exist(err);
+          res.count.should.equal(1);
+          callback();
+        });
+      }
+    }, done);
+  });
 
   // it('should watch the counter', (done) => {
   //   let stream = client.watch({});
