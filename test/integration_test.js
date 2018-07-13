@@ -13,7 +13,7 @@ describe('integration tests', () => {
   let client;
 
   before(() => {
-    console.log('<><><><><> BEFORE <><><><><><>')
+    console.log('<><><><><> BEFORE <><><><><><>', {HOST, PORT})
     // Create a grpc client.
     // This assumes that the server is running.
     client = new counterProto.counter.CounterService(
@@ -24,7 +24,7 @@ describe('integration tests', () => {
 
   afterEach((done) => {
 
-    console.log('<><><><><> AFTER <><><><><><>')
+    console.log('<><><><><> AFTER <><><><><><>', {client})
     // client.reset({}, done);
     done()
   });
