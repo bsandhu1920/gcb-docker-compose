@@ -25,6 +25,3 @@ steps:
   env:
   - 'HOST=counter' # running container, container_name defined in the docker-compose.yml
   - 'PORT=50051'
-
-# Push the new image to the registry.
-images: ['gcr.io/$PROJECT_ID/gcb-docker-compose:latest']
