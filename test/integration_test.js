@@ -25,7 +25,7 @@ describe('integration tests', () => {
   afterEach((done) => {
 
     console.log('<><><><><> AFTER <><><><><><>')
-    client.reset({}, done);
+    // client.reset({}, done);
   });
   
   it('should do nothing', () => {})
