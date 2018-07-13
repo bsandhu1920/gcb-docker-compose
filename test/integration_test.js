@@ -26,6 +26,7 @@ describe('integration tests', () => {
 
     console.log('<><><><><> AFTER <><><><><><>')
     // client.reset({}, done);
+    done()
   });
   
   it('should do nothing', () => {})
