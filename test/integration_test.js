@@ -13,9 +13,7 @@ describe('integration tests', () => {
   let client;
 
   before(() => {
-    let credentials = grpc.credentials.createInsecure()
-    console.log(grpc.ServerCredentials.createInsecure())
-    console.log({credentials})
+    let credentials = grpc.credentials.createInsecure();
 
     client = new counterProto.counter.CounterService(
       HOST + ':' + PORT,
