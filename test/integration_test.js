@@ -13,9 +13,6 @@ describe('integration tests', () => {
   let client;
 
   before(() => {
-    console.log('<><><><><> BEFORE <><><><><><>', {HOST, PORT})
-    // Create a grpc client.
-    // This assumes that the server is running.
     let credentials = grpc.credentials.createInsecure()
     console.log(grpc.ServerCredentials.createInsecure())
     console.log({credentials})
@@ -25,14 +22,10 @@ describe('integration tests', () => {
       credentials
     );
     
-    console.log({client})
   });
 
   afterEach((done) => {
-
-    console.log('<><><><><> AFTER <><><><><><>', {client})
     client.reset({}, done);
-    // done()
   });
   
   it('should do nothing', () => {})
@@ -72,5 +65,5 @@ describe('integration tests', () => {
       client.add({count: increment}, next);
     }, done);
   });
-
+  
 });
