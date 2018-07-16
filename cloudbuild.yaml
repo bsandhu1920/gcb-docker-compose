@@ -15,7 +15,7 @@ steps:
 # Warning: this won't be cleaned up, which might be an issue if you run it
 # with the local builder.
 - name: 'docker/compose:1.15.0'
-  args: ['up', '-d']
+  args: ['up', '--detach', '--force-recreate', '--remove-orphans']
   env:
   - 'PROJECT_ID=$PROJECT_ID'
 
