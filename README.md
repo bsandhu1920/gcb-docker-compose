@@ -1,4 +1,4 @@
-# gcb-docker-compose
+# gcb-docker-compose test-run 
 
 `gcb-docker-compose` demonstrates how to run integration tests on Google Cloud
 Container Builder (GCB) using `docker-compose`.
