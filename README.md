@@ -7,6 +7,10 @@ This sample application is a simple counter gRPC server with `add`, `reset`,
 `get`, and `watch` methods. The application uses [Redis](https://redis.io/) for
 storage.
 
+## Install Google Cloud SDK for local builds
+
+_(see [the Google Cloud SDK docs](https://cloud.google.com/container-builder/docs/build-debug-locally))_
+
 ## What is Container Builder?
 
 [Container Builder](https://cloud.google.com/container-builder/) is a Google
