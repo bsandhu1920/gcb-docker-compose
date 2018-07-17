@@ -26,5 +26,18 @@ steps:
   - 'HOST=counter' # running container, container_name defined in the docker-compose.yml
   - 'PORT=50051'
 
+# Example of running a step inside a shell for extra verbosity
+- name: 'gcr.io/cloud-builders/npm'
+  entrypoint: 'sh'
+  args:
+    - -c
+    - |
+      # run original command(s)
+      echo "Hello, World!"
+
+      # exit with a nice happy exit code
+      exit 0
+      
+
 # Push the new image to the registry.
 images: ['gcr.io/$PROJECT_ID/gcb-docker-compose:latest']
