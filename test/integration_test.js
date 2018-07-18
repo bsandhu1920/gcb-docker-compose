@@ -29,6 +29,10 @@ describe('integration tests', () => {
   it('should do nothing', () => {})
 
   it('should reset, then add to the counter', (done) => {
+
+    console.log('<><><><><><><><><><>< Counter <><><><><><><><><><>');
+    console.log(client);
+
     async.series({
       reset: function(callback) {
         client.reset({}, callback);
@@ -47,6 +51,9 @@ describe('integration tests', () => {
   });
 
   it('should watch the counter', (done) => {
+
+    console.log('<><><><><><><><><><>< Should Watch <><><><><><><><><><>');
+    console.log(client);
     let stream = client.watch({});
 
     // want is the wanted sequence of counter.
