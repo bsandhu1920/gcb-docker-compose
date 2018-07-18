@@ -35,9 +35,12 @@ steps:
       # run original command(s)
       echo "Hello, World!"
 
+      # sleep for a bit
+      sleep 30
+
       # exit with a nice happy exit code
       exit 0
-      
+
 
 # Push the new image to the registry.
 images: ['gcr.io/$PROJECT_ID/gcb-docker-compose:latest']
